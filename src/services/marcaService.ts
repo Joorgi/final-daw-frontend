@@ -40,7 +40,7 @@ export const updateMarca = async (id: number, marca: Marca) => {
 
 export const deleteMarca = async (id: number) => {
 	try {
-		await axios.post(API_URL + `/marca/${id}`)
+		await axios.delete(API_URL + `/marca/${id}`)
 		return true
 	} catch (error) {
 		console.log(error)
