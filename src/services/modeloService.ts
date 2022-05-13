@@ -4,7 +4,7 @@ import { Modelo } from '../types'
 
 export const getModelos = async () => {
 	try {
-		const request = axios.get(API_URL + 'modelos')
+		const request = axios.get(API_URL + '/modelos')
 		return request.then(response => response.data)
 	} catch (error) {
 		console.log(error)
@@ -12,7 +12,7 @@ export const getModelos = async () => {
 }
 export const getModeloById = async (id: number) => {
 	try {
-		const request = axios.get(API_URL + `modelo/${id}`)
+		const request = axios.get(API_URL + `/modelo/${id}`)
 		return request.then(response => response.data)
 	} catch (error) {
 		console.log(error)
@@ -30,7 +30,7 @@ export const getModelosWithImage = async () => {
 
 export const getModeloWithImageById = async (id: number) => {
 	try {
-		const request = axios.get(API_URL + `modeloimagen/${id}`)
+		const request = axios.get(API_URL + `/modeloimagen/${id}`)
 		return request.then(response => response.data)
 	} catch (error) {
 		console.log(error)
