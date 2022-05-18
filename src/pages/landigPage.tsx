@@ -1,31 +1,26 @@
 export default function LandigPage() {
 	return (
-		<section className='bg-gray-200'>
-			<div className='max-w-5xl px-6 py-16 mx-auto'>
-				<div className='items-center md:flex md:space-x-6'>
-					<div className='md:w-1/2'>
-						<h3 className='text-4xl font-semibold text-gray-800'>
-							Lorem ipsum dolor sit <br /> amet, consectetur
+		<section className="bg-[url('assets/images/Landing/pexels-maria-geller-2127040.jpg')] bg-no-repeat bg-cover h-[56.8rem] opacity-90">
+			<div className='py-40 flex justify-center'>
+				<div className='items-center md:flex'>
+					<div className='mx-auto'>
+						<h3 className='text-5xl font-bold text-[#FF9098] hover:text-[#FF081A]'>
+							Tu museo de coches,
+							<br /> <span className='text-[#D3FFCC]'>a tan solo un clic</span>
 						</h3>
-						<p className='max-w-md mt-4 text-gray-600'>
-							Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum.
+						<p className='max-w-md mt-4 font-semibold text-[#FF9098] hover:text-[#FF081A] text-justify'>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua.
 						</p>
-						<a href='#' className='block mt-8 text-indigo-700 underline'>
-							Experienced team
-						</a>
-					</div>
-
-					<div className='mt-8 md:mt-0 md:w-1/2'>
-						<div className='flex items-center justify-center'>
-							<div className='max-w-md'>
-								<img
-									className='object-cover object-center w-full rounded-md shadow h-[500px]'
-									src='https://images.unsplash.com/photo-1618346136472-090de27fe8b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=673&q=80'
-								/>
-							</div>
+						<div className='flex justify-center'>
+							<button
+								type='button'
+								className='block mt-4  text-[#78FF63]  hover:text-[#FF3846] bg-[#FF3846] hover:bg-[#78FF63] active:bg-[#FF3846] active:text-[#78FF63]
+								active:duration-150 hover:duration-300
+								font-medium rounded-lg text-lg px-16 py-3  dark:bg-blue-600 dark:hover:bg-blue-700  dark:focus:ring-blue-800'
+							>
+								Acceder
+							</button>
 						</div>
 					</div>
 				</div>
