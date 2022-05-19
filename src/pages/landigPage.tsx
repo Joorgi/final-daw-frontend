@@ -105,7 +105,7 @@ export default function LandigPage() {
 			</section>
 
 			<section className={`${theme}`}>
-				<div className='bg-[#FF9098] dark:bg-gray-400'>
+				<div className='bg-[#FF9098] dark:bg-gray-300'>
 					<div className='max-w-5xl px-6 py-16 mx-auto'>
 						<div className='md:flex md:justify-between'>
 							<h2 className='text-3xl font-semibold text-gray-800'>
