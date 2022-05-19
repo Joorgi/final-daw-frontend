@@ -86,9 +86,6 @@ export default function Navbar() {
 					>
 						<ul className='flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-lg md:font-medium'>
 							<li>
-								<ActiveLink href='/home'>Home</ActiveLink>
-							</li>
-							<li>
 								<ActiveLink href='/marcas'>Marcas</ActiveLink>
 							</li>
 							<li>
