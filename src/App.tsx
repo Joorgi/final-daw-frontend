@@ -3,6 +3,8 @@ import { Switch, Route } from 'wouter'
 import LandigPage from './pages/landigPage'
 import Navbar from './components/NavBar'
 import { ThemeContextProvider } from './context/ThemeContext'
+import ErrorPage from './pages/errorPage'
+import BrandsPage from './pages/brandsPage'
 
 function App() {
 	return (
@@ -12,7 +14,8 @@ function App() {
 				<main>
 					<Switch>
 						<Route component={LandigPage} path='/'></Route>
-						<Route component={LandigPage} path='/:anything*'></Route>
+						<Route component={BrandsPage} path='/marcas'></Route>
+						<Route component={ErrorPage} path='/:anything*'></Route>
 					</Switch>
 				</main>
 			</div>

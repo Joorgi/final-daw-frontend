@@ -1,6 +1,12 @@
+import { useContext } from 'react'
+import ThemeContext from '../context/ThemeContext'
+
 export default function LandigPage() {
+	const { theme } = useContext(ThemeContext)
 	return (
-		<section className="bg-[url('assets/images/Landing/pexels-maria-geller-2127040.jpg')] bg-no-repeat bg-cover h-[56.8rem] opacity-90">
+		<section
+			className={`${theme} bg-[url('assets/images/Landing/pexels-maria-geller-2127040.jpg')] bg-no-repeat bg-cover h-[55.8rem] opacity-90`}
+		>
 			<div className='py-40 flex justify-center'>
 				<div className='items-center md:flex'>
 					<div className='mx-auto'>
