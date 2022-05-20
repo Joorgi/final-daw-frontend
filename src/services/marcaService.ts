@@ -11,9 +11,9 @@ export const getMarcas = async () => {
 	}
 }
 
-export const getMarcasWithModels = async () => {
+export const getMarcasWithModels = async (pageNumber: number) => {
 	try {
-		const request = axios.get(API_URL + '/marcasmodelos')
+		const request = axios.get(API_URL + `/marcasmodelos?page=${pageNumber}`)
 		return request.then(response => response.data)
 	} catch (error) {
 		console.log(error)
@@ -32,6 +32,15 @@ export const getMarcaById = async (id: number) => {
 export const getMarcaWithModelsById = async (id: number) => {
 	try {
 		const request = axios.get(API_URL + `/marcasmodelos/${id}`)
+		return request.then(response => response.data)
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+export const getMarcaByName = async (name: string) => {
+	try {
+		const request = axios.get(API_URL + `/marcas/search/${name}`)
 		return request.then(response => response.data)
 	} catch (error) {
 		console.log(error)

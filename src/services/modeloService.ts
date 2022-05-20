@@ -19,6 +19,15 @@ export const getModeloById = async (id: number) => {
 	}
 }
 
+export const getModeloByName = async (name: string) => {
+	try {
+		const request = axios.get(API_URL + `/modelo/search/${name}`)
+		return request.then(response => response.data)
+	} catch (error) {
+		console.log(error)
+	}
+}
+
 export const getModelosWithImage = async () => {
 	try {
 		const request = axios.get(API_URL + 'modeloimagen')
