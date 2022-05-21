@@ -1,10 +1,14 @@
 import { useContext, useEffect, useRef, useState } from 'react'
+import LandingCards from '../components/LandingCards'
+import ScrollDownButton from '../components/ScrollDownButton'
 import ThemeContext from '../context/ThemeContext'
+import { getMarcas } from '../services/marcaService'
 
 export default function LandigPage() {
 	const { theme } = useContext(ThemeContext)
 	const [showButton, setShowButton] = useState(false)
 	const messagesEndRef = useRef<any>(null)
+	const [lastBrands, setLastBrands] = useState([])
 
 	useEffect(() => {
 		window.addEventListener('scroll', () => {
@@ -14,12 +18,15 @@ export default function LandigPage() {
 				setShowButton(false)
 			}
 		})
+		getMarcas().then(lastBrands => {
+			setLastBrands(lastBrands)
+		})
 	}, [])
 
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
-			behavior: 'smooth', // for smoothly scrolling
+			behavior: 'smooth',
 		})
 	}
 
@@ -57,8 +64,11 @@ export default function LandigPage() {
 					</div>
 				</div>
 
-				<button onClick={scrollToBot} className=''>
-					<div className='scroll-down h-14 w-8 hover:scale-125 absolute border-2 border-black left-2/4 bottom-5 rounded-full cursor-pointer'></div>
+				<button
+					onClick={scrollToBot}
+					className='flex mx-auto mt-64 hover:scale-125'
+				>
+					<ScrollDownButton />
 				</button>
 			</section>
 
@@ -96,9 +106,12 @@ export default function LandigPage() {
 					{showButton && (
 						<button
 							onClick={scrollToTop}
-							className='back-to-top rounded-full bg-[#FF3846]'
+							className='back-to-top rounded-full bg-[#FF3846] hover:scale-125 hover:bg-[#FF9098]'
 						>
-							&#8679;
+							<img
+								src='src/assets/images/Landing/svg/arrow-drop-up.svg'
+								alt=''
+							/>
 						</button>
 					)}
 				</div>
@@ -133,17 +146,16 @@ export default function LandigPage() {
 						<h2 className='text-3xl font-semibold text-gray-800'>
 							Ultimas marcas añadidas
 						</h2>
-
-						<div className='grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-4'>
-							{/* CREATE COMPONENT */}
-							<div>
-								<img
-									className='object-cover object-center w-full h-64 rounded-md shadow'
-									src='https://images.unsplash.com/photo-1614030126544-b79b92e29e98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+						<div className='grid gap-8 mt-12 md:grid-cols-2 lg:grid-cols-3'>
+							{lastBrands.map(({ id, make_name, make_img, make_date }: any) => (
+								<LandingCards
+									key={id}
+									brandImage={make_img}
+									brandName={make_name}
+									brandYear={make_date}
+									totalModels={0}
 								/>
-								<h3 className='mt-2 font-medium text-gray-700'>John Doe</h3>
-								<p className='text-sm text-gray-600'>CEO</p>
-							</div>
+							))}
 						</div>
 					</div>
 				</div>
