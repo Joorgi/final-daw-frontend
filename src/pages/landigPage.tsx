@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import LandingCards from '../components/LandingCards'
-import ScrollDownButton from '../components/ScrollDownButton'
+import ScrollDownButton from '../components/ScrollBottomButton'
 import ThemeContext from '../context/ThemeContext'
 import { getMarcas } from '../services/marcaService'
 
