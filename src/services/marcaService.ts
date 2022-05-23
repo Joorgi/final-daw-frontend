@@ -31,7 +31,7 @@ export const getMarcaById = async (id: number) => {
 
 export const getMarcaWithModelsById = async (id: number) => {
 	try {
-		const request = axios.get(API_URL + `/marcasmodelos/${id}`)
+		const request = axios.get(API_URL + `/marcamodelos/${id}`)
 		return request.then(response => response.data)
 	} catch (error) {
 		console.log(error)

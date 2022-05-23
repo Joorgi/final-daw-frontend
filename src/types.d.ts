@@ -15,6 +15,7 @@ export interface Imagen {
 }
 
 export interface BrandProps {
+	id: number
 	brandName: string
 	brandYear: number
 	brandImage: string

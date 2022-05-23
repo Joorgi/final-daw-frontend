@@ -63,13 +63,11 @@ export default function LandigPage() {
 						</div>
 					</div>
 				</div>
-
-				<button
-					onClick={scrollToBot}
-					className='flex mx-auto mt-64 hover:scale-125'
-				>
-					<ScrollDownButton />
-				</button>
+				<div className='grid grid-rows-1 grid-flow-col gap-4 justify-center'>
+					<button onClick={scrollToBot} className='mt-64 hover:scale-125'>
+						<ScrollDownButton />
+					</button>
+				</div>
 			</section>
 
 			<section className={`${theme}`} ref={messagesEndRef}>
@@ -86,9 +84,6 @@ export default function LandigPage() {
 									occaecat cupidatat non proident, sunt in culpa qui officia
 									deserunt mollit anim id est laborum.
 								</p>
-								<a href='#' className='block mt-8 text-indigo-700 underline'>
-									Experienced team
-								</a>
 							</div>
 
 							<div className='mt-8 md:mt-0 md:w-1/2'>
@@ -96,7 +91,7 @@ export default function LandigPage() {
 									<div className='max-w-md'>
 										<img
 											className='object-cover object-center w-full rounded-md shadow h-[500px]'
-											src='https://images.unsplash.com/photo-1618346136472-090de27fe8b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=673&q=80'
+											src='src\assets\images\Landing\pexels-maria-geller-2127017.jpg'
 										/>
 									</div>
 								</div>
@@ -129,7 +124,7 @@ export default function LandigPage() {
 						{/* CREATE COMPONENT */}
 						<div className='grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3'>
 							<div className='px-6 py-8 overflow-hidden bg-white rounded-md shadow-md'>
-								<h2 className='text-xl font-medium text-gray-800'>Audio</h2>
+								<h2 className='text-xl font-medium text-gray-800'>Test</h2>
 								<p className='max-w-md mt-4 text-gray-400'>
 									Lorem ipsum dolor sit amet, consectetur adipiscing Ac aliquam
 									ac volutpat, viverra magna risus aliquam massa.
@@ -150,6 +145,7 @@ export default function LandigPage() {
 							{lastBrands.map(({ id, make_name, make_img, make_date }: any) => (
 								<LandingCards
 									key={id}
+									id={id}
 									brandImage={make_img}
 									brandName={make_name}
 									brandYear={make_date}

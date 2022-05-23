@@ -1,0 +1,13 @@
+.scrolldown {
+  --color: #FF9098;
+  --sizeX: 30px;
+  --sizeY: 50px;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  margin-left: var(sizeX / 2);
+  border: calc(var(--sizeX) / 10) solid var(--color);
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  cursor: pointer;
+}

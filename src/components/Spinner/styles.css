@@ -1,9 +1,9 @@
 /* From uiverse.io by @AqFox */
 .spinner {
-  width: 56px;
-  height: 56px;
+  width: 106px;
+  height: 106px;
   border-radius: 50%;
-  color: #004dff;
+  color: #FF9098;
   background: linear-gradient(currentColor 0 0) center/100% 4px,
     linear-gradient(currentColor 0 0) center/4px 100%,
     radial-gradient(farthest-side, #0000 calc(100% - 7px), currentColor calc(100% - 6px)),
@@ -16,6 +16,7 @@
 .spinner::before {
   content: "";
   position: absolute;
+  color: #FF9098;
   inset: 0;
   border-radius: inherit;
   background: inherit;

@@ -5,6 +5,7 @@ import Navbar from './components/NavBar'
 import { ThemeContextProvider } from './context/ThemeContext'
 import ErrorPage from './pages/errorPage'
 import BrandsPage from './pages/brandsPage'
+import BrandModal from './components/BrandModal'
 
 function App() {
 	return (
@@ -15,6 +16,9 @@ function App() {
 					<Switch>
 						<Route component={LandigPage} path='/'></Route>
 						<Route component={BrandsPage} path='/marcas'></Route>
+						<Route path='/marca/:id'>
+							{params => <BrandModal id={params.id} />}
+						</Route>
 						<Route component={ErrorPage} path='/:anything*'></Route>
 					</Switch>
 				</main>

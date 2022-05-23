@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
 import BrandCard from '../components/BrandCard'
-import BrandsLogos from '../components/Logos'
 import Spinner from '../components/Spinner'
 import ThemeContext from '../context/ThemeContext'
 import { getMarcasWithModels } from '../services/marcaService'
@@ -17,40 +16,43 @@ export default function BrandsPage() {
 		setLoading(true)
 		setTimeout(() => {
 			setLoading(false)
-		}, 600)
+		}, 250)
 	}
 
 	useEffect(() => {
+		loadingTime()
 		getMarcasWithModels(page).then(brand => {
 			setBrands(brand.data)
-			// loadingTime()
 			setPagination(brand)
 		})
 	}, [setBrands, page])
 
 	return (
 		<section className={`${theme}`}>
-			<div className='bg-[#FFCCCF] dark:bg-gray-400 h-full'>
-				<div className='flex justify-center pt-12'>
-					<h1 className='text-2xl'>Marcas disponibles</h1>
+			<div className='bg-[#FFCCCF] dark:bg-gray-400 h-screen'>
+				<div className='flex justify-center pt-10'>
+					<h1 className='text-3xl'>Marcas</h1>
 				</div>
-				<BrandsLogos />
-				{loading ? <Spinner /> : null}
-				<article>
-					<div className='grid lg:grid-cols-4 sm:grid-cols-2 p-6 gap-6 justify-items-center items-center'>
-						{brands.map(
-							({ id, make_name, make_img, make_date, models }: MarcaCard) => (
-								<BrandCard
-									key={id}
-									brandName={make_name}
-									brandImage={make_img}
-									brandYear={make_date}
-									totalModels={models.length}
-								/>
-							)
-						)}
-					</div>
-				</article>
+				{loading ? (
+					<Spinner />
+				) : (
+					<article>
+						<div className='grid lg:grid-cols-4 sm:grid-cols-2 p-6 gap-6 justify-items-center items-center'>
+							{brands.map(
+								({ id, make_name, make_img, make_date, models }: MarcaCard) => (
+									<BrandCard
+										key={id}
+										id={id}
+										brandName={make_name}
+										brandImage={make_img}
+										brandYear={make_date}
+										totalModels={models.length}
+									/>
+								)
+							)}
+						</div>
+					</article>
+				)}
 				<div className='flex flex-col items-center bottom-11'>
 					<span className='text-sm text-gray-700 dark:text-white'>
 						Página{' '}
