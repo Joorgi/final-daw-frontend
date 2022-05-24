@@ -30,7 +30,8 @@ export const getModeloByName = async (name: string) => {
 
 export const getModelosWithImage = async () => {
 	try {
-		const request = axios.get(API_URL + 'modeloimagen')
+		const request = axios.get(API_URL + '/modeloimagen')
+		console.log()
 		return request.then(response => response.data)
 	} catch (error) {
 		console.log(error)

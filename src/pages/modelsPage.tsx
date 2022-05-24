@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from 'react'
-import BrandCard from '../components/BrandCard'
+import ModelCard from '../components/ModelCard'
+
 import Spinner from '../components/Spinner'
 import ThemeContext from '../context/ThemeContext'
-import { getMarcasWithModels } from '../services/marcaService'
-import { MarcaCard } from '../types'
+import { getModelos } from '../services/modeloService'
+import { ModeloCard } from '../types'
 
-export default function BrandsPage() {
+export default function ModelsPage() {
 	const { theme } = useContext(ThemeContext)
-	const [brands, setBrands] = useState<any>([])
+	const [models, setModels] = useState<any>([])
 	const [pagination, setPagination] = useState<any>([])
 	const [page, setPage] = useState<any>(1)
 	const [loading, setLoading] = useState(false)
@@ -21,40 +22,38 @@ export default function BrandsPage() {
 
 	useEffect(() => {
 		loadingTime()
-		getMarcasWithModels(page).then(brand => {
-			setBrands(brand.data)
-			setPagination(brand)
+		getModelos().then(model => {
+			console.log(model)
+			setModels(model)
+			setPagination(model)
 		})
-	}, [setBrands, page])
+	}, [setModels, page])
 
 	return (
 		<section className={`${theme}`}>
 			<div className='bg-[#FFCCCF] dark:bg-gray-400 h-full lg:h-screen'>
 				<div className='flex justify-center pt-10'>
-					<h1 className='text-3xl'>Marcas</h1>
+					<h1 className='text-3xl'>Modelos</h1>
 				</div>
 				{loading ? (
 					<Spinner />
 				) : (
 					<article>
 						<div className='grid lg:grid-cols-4 sm:grid-cols-2 p-6 gap-6 justify-items-center items-center'>
-							{brands.map(
-								({ id, make_name, make_img, make_date, models }: MarcaCard) => (
-									<BrandCard
-										key={id}
-										id={id}
-										brandName={make_name}
-										brandImage={make_img}
-										brandYear={make_date}
-										totalModels={models.length}
-									/>
-								)
-							)}
+							{models.map(({ id, model_name, make_id, make }: ModeloCard) => (
+								<ModelCard
+									key={id}
+									id={id}
+									modelName={model_name}
+									makeId={make_id}
+									make={make.make_name}
+								/>
+							))}
 						</div>
 					</article>
 				)}
 
-				{brands.length > 1 ? (
+				{models.length > 1 ? (
 					<div className='flex flex-col items-center bottom-11'>
 						<span className='text-sm text-gray-700 dark:text-white'>
 							Página{' '}
