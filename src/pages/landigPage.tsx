@@ -39,14 +39,14 @@ export default function LandigPage() {
 				className={`${theme} bg-[url('assets/images/Landing/pexels-maria-geller-2127040.jpg')] bg-no-repeat bg-cover h-screen opacity-90`}
 			>
 				<div className='py-40 flex justify-center'>
-					<div className='items-center md:flex'>
+					<div className='items-center'>
 						<div className='mx-auto'>
-							<h3 className='text-5xl font-bold text-[#FF9098] hover:text-[#FF081A]'>
+							<h3 className='text-5xl text-center sm:text-center md:text-justify font-bold text-[#FF9098] hover:text-[#FF081A]'>
 								Tu museo de coches,
 								<br />{' '}
 								<span className='text-[#D3FFCC]'>a tan solo un clic</span>
 							</h3>
-							<p className='max-w-md mt-4 font-semibold text-[#FF9098] hover:text-[#FF081A] text-justify'>
+							<p className='max-w-md mt-4 font-semibold text-[#FF9098] hover:text-[#FF081A] text-center sm:text-center md:text-justify'>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 								eiusmod tempor incididunt ut labore et dolore magna aliqua.
 							</p>
@@ -63,8 +63,11 @@ export default function LandigPage() {
 						</div>
 					</div>
 				</div>
-				<div className='grid grid-rows-1 grid-flow-col gap-4 justify-center'>
-					<button onClick={scrollToBot} className='mt-64 hover:scale-125'>
+				<div className='grid grid-rows-1 justify-center'>
+					<button
+						onClick={scrollToBot}
+						className='absolute left-[43%] sm:left-[46.7%] lg:left-[47.7%] xl:left-[49%] top-full hover:scale-125'
+					>
 						<ScrollDownButton />
 					</button>
 				</div>
@@ -75,10 +78,10 @@ export default function LandigPage() {
 					<div className='max-w-5xl px-6 py-16 mx-auto'>
 						<div className='items-center md:flex md:space-x-6'>
 							<div className='md:w-1/2'>
-								<h3 className='text-2xl font-semibold text-gray-800'>
+								<h3 className='text-2xl font-semibold text-gray-800 text-center sm:text-center md:text-justify'>
 									Lorem ipsum dolor sit <br /> amet, consectetur
 								</h3>
-								<p className='max-w-md mt-4 text-gray-600'>
+								<p className='max-w-md mt-4 text-gray-600 text-center sm:text-center md:text-justify'>
 									Duis aute irure dolor in reprehenderit in voluptate velit esse
 									cillum dolore eu fugiat nulla pariatur. Excepteur sint
 									occaecat cupidatat non proident, sunt in culpa qui officia
@@ -114,18 +117,18 @@ export default function LandigPage() {
 
 			<section className={`${theme}`}>
 				<div className='bg-[#FF9098] dark:bg-gray-300'>
-					<div className='max-w-5xl px-6 py-16 mx-auto'>
-						<div className='md:flex md:justify-between'>
-							<h2 className='text-3xl font-semibold text-gray-800'>
-								Ultimos modelos añadidos
-							</h2>
-						</div>
+					<div className='max-w-5xl px-6 py-16 mx-auto text-center'>
+						<h2 className='text-3xl font-semibold text-gray-800'>
+							Ultimos modelos añadidos
+						</h2>
 
 						{/* CREATE COMPONENT */}
 						<div className='grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3'>
 							<div className='px-6 py-8 overflow-hidden bg-white rounded-md shadow-md'>
-								<h2 className='text-xl font-medium text-gray-800'>Test</h2>
-								<p className='max-w-md mt-4 text-gray-400'>
+								<h2 className='text-xl font-medium text-gray-800 text-left sm:text-left md:text-left'>
+									Test
+								</h2>
+								<p className='max-w-md mt-4 text-gray-400 text-justify'>
 									Lorem ipsum dolor sit amet, consectetur adipiscing Ac aliquam
 									ac volutpat, viverra magna risus aliquam massa.
 								</p>
