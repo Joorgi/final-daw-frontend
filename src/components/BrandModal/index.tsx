@@ -35,7 +35,7 @@ export default function BrandModal(props: any) {
 			aria-hidden='true'
 			className='overflow-y-auto overflow-x-hidden top-0 right-0 left-0 z-50 w-full h-modal md:h-full'
 		>
-			<div className='relative p-4 w-full max-w-7xl h-full md:h-auto  mx-auto top-32 motion-safe:hover:scale-105 hover:duration-300'>
+			<div className='relative p-4 w-full max-w-7xl h-full md:h-auto  mx-auto top-16 motion-safe:hover:scale-105 hover:duration-300'>
 				<div className='relative bg-white rounded-lg shadow dark:bg-gray-700'>
 					<div className='flex justify-between items-center p-5 rounded-t border-b dark:border-gray-600'>
 						<h3 className='text-4xl font-medium text-gray-900 dark:text-white'>
@@ -102,7 +102,7 @@ export default function BrandModal(props: any) {
 								className='w-full px-4 py-2  dark:border-gray-600'
 							>
 								<Link
-									to={`modelo/${id}`}
+									to={`/modelo/${id}`}
 									className='text-gray-700 dark:text-white hover:text-[#9FFF90] dark:hover:text-[#9FFF90]'
 								>
 									{model_name}

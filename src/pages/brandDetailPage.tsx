@@ -6,7 +6,7 @@ export default function BrandDetailPage(props: any) {
 	const { theme } = useContext(ThemeContext)
 	return (
 		<section className={`${theme}`}>
-			<div className='bg-[#FFCCCF] dark:bg-gray-400 h-screen'>
+			<div className='bg-[#FFCCCF] dark:bg-gray-400 h-screen lg:h-screen'>
 				<BrandModal id={props.id} />
 			</div>
 		</section>

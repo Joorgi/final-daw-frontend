@@ -7,6 +7,8 @@ import ErrorPage from './pages/errorPage'
 import BrandsPage from './pages/brandsPage'
 import BrandDetailPage from './pages/brandDetailPage'
 import ModelsPage from './pages/modelsPage'
+import ModelDetailPage from './pages/modelDetailPage'
+import ContactPage from './pages/contactPage'
 
 function App() {
 	return (
@@ -18,8 +20,12 @@ function App() {
 						<Route component={LandigPage} path='/'></Route>
 						<Route component={BrandsPage} path='/marcas'></Route>
 						<Route component={ModelsPage} path='/modelos'></Route>
+						<Route component={ContactPage} path='/contacto'></Route>
 						<Route path='/marca/:id'>
 							{params => <BrandDetailPage id={params.id} />}
+						</Route>
+						<Route path='/modelo/:id'>
+							{params => <ModelDetailPage id={params.id} />}
 						</Route>
 						<Route component={ErrorPage} path='/:anything*'></Route>
 					</Switch>

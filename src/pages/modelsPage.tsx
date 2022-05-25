@@ -39,7 +39,7 @@ export default function ModelsPage() {
 					<Spinner />
 				) : (
 					<article>
-						<div className='grid lg:grid-cols-4 sm:grid-cols-2 p-6 gap-6 justify-items-center items-center'>
+						<div className='grid lg:grid-cols-3 sm:grid-cols-2 p-6 gap-6 justify-items-center items-center'>
 							{models.map(({ id, model_name, make_id, make }: ModeloCard) => (
 								<ModelCard
 									key={id}

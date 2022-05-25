@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react'
+import { Link } from 'wouter'
 import LandingCards from '../components/LandingCards'
 import ScrollDownButton from '../components/ScrollBottomButton'
 import ThemeContext from '../context/ThemeContext'
@@ -39,26 +40,22 @@ export default function LandigPage() {
 				className={`${theme} bg-[url('assets/images/Landing/pexels-maria-geller-2127040.jpg')] bg-no-repeat bg-cover h-screen opacity-90`}
 			>
 				<div className='py-40 flex justify-center'>
-					<div className='items-center'>
+					<div className='items-center pt-44'>
 						<div className='mx-auto'>
-							<h3 className='text-5xl text-center sm:text-center md:text-justify font-bold text-[#FF9098] hover:text-[#FF081A]'>
+							<h3 className='cursor-default text-5xl text-center sm:text-center md:text-justify font-bold text-[#FF9098] hover:text-[#FF081A]'>
 								Tu museo de coches,
 								<br />{' '}
 								<span className='text-[#D3FFCC]'>a tan solo un clic</span>
 							</h3>
-							<p className='max-w-md mt-4 font-semibold text-[#FF9098] hover:text-[#FF081A] text-center sm:text-center md:text-justify'>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							</p>
 							<div className='flex justify-center'>
-								<button
-									type='button'
-									className='block mt-4  text-[#78FF63]  hover:text-[#FF3846] bg-[#FF3846] hover:bg-[#78FF63] active:bg-[#FF3846] active:text-[#78FF63]
-								active:duration-150 hover:duration-300
-								font-medium rounded-lg text-lg px-16 py-3  dark:bg-blue-600 dark:hover:bg-blue-700  dark:focus:ring-blue-800'
-								>
-									Acceder
-								</button>
+								<Link to='/marcas'>
+									<button
+										type='button'
+										className='block mt-16  text-[#78FF63]  hover:text-[#FF3846] bg-[#FF3846] hover:bg-[#78FF63] active:bg-[#FF3846] active:text-[#78FF63] active:duration-150 hover:duration-300 font-medium rounded-lg text-lg px-16 py-3  dark:bg-blue-600 dark:hover:bg-blue-700  dark:focus:ring-blue-800'
+									>
+										Acceder
+									</button>
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -66,7 +63,7 @@ export default function LandigPage() {
 				<div className='grid grid-rows-1 justify-center'>
 					<button
 						onClick={scrollToBot}
-						className='absolute left-[43%] sm:left-[46.7%] lg:left-[47.7%] xl:left-[49%] top-full hover:scale-125'
+						className='absolute left-[43%] sm:left-[46.7%] lg:left-[47.7%] xl:left-[49%] top-[95%] hover:scale-125'
 					>
 						<ScrollDownButton />
 					</button>
@@ -78,14 +75,17 @@ export default function LandigPage() {
 					<div className='max-w-5xl px-6 py-16 mx-auto'>
 						<div className='items-center md:flex md:space-x-6'>
 							<div className='md:w-1/2'>
-								<h3 className='text-2xl font-semibold text-gray-800 text-center sm:text-center md:text-justify'>
-									Lorem ipsum dolor sit <br /> amet, consectetur
+								<h3 className='text-2xl font-semibold text-gray-800 text-center sm:text-center md:text-center'>
+									Sobre nosotros: <br />
 								</h3>
-								<p className='max-w-md mt-4 text-gray-600 text-center sm:text-center md:text-justify'>
-									Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint
-									occaecat cupidatat non proident, sunt in culpa qui officia
-									deserunt mollit anim id est laborum.
+								<p className='max-w-lg text-xl mt-4 text-gray-600 text-justify sm:text-justify md:text-justify'>
+									Decidimos crear este sitio web para que toda la gente
+									aficionada a los coches tuviesen en un mismo lugar, un sitio
+									donde poder consultar información de cualquier marca, y de
+									cualquier modelo. Tenemos a los mejores especialistas buscando
+									nuevas marcas y modelos de manera frecuente, así que
+									garantizamos que podemos mantener toda la información
+									actualizada.
 								</p>
 							</div>
 

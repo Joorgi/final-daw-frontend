@@ -92,10 +92,7 @@ export default function Navbar() {
 								<ActiveLink href='/modelos'>Modelos</ActiveLink>
 							</li>
 							<li>
-								<ActiveLink href='/contact'>Contacto</ActiveLink>
-							</li>
-							<li>
-								<ActiveLink href='/about'>Sobre nosotros</ActiveLink>
+								<ActiveLink href='/contacto'>Contacto</ActiveLink>
 							</li>
 						</ul>
 					</div>
