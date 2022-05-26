@@ -2,14 +2,24 @@ import { API_URL } from './settings'
 import axios from 'axios'
 import { Modelo } from '../types'
 
-export const getModelos = async () => {
+export const getModelos = async (pageNumber: number) => {
 	try {
-		const request = axios.get(API_URL + '/modelos')
+		const request = axios.get(API_URL + `/modelos?page=${pageNumber}`)
 		return request.then(response => response.data)
 	} catch (error) {
 		console.log(error)
 	}
 }
+
+export const getTopThreeModelos = async () => {
+	try {
+		const request = axios.get(API_URL + '/modelos/topthree')
+		return request.then(response => response.data)
+	} catch (error) {
+		console.log(error)
+	}
+}
+
 export const getModeloById = async (id: number) => {
 	try {
 		const request = axios.get(API_URL + `/modelo/${id}`)

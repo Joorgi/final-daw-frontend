@@ -11,6 +11,15 @@ export const getMarcas = async () => {
 	}
 }
 
+export const getTopThreeMarcas = async () => {
+	try {
+		const request = axios.get(API_URL + '/marcas/topthree')
+		return request.then(response => response.data)
+	} catch (error) {
+		console.log(error)
+	}
+}
+
 export const getMarcasWithModels = async (pageNumber: number) => {
 	try {
 		const request = axios.get(API_URL + `/marcasmodelos?page=${pageNumber}`)
