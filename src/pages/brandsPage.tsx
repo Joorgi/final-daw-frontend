@@ -74,7 +74,11 @@ export default function BrandsPage() {
 						<div className='inline-flex mt-2 xs:mt-0'>
 							<button
 								onClick={() => {
-									setPage(page - 1)
+									if (page <= 1) {
+										setPage(pagination.last_page)
+									} else {
+										setPage(page - 1)
+									}
 								}}
 								className='inline-flex items-center py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
 							>
@@ -90,8 +94,11 @@ export default function BrandsPage() {
 							</button>
 							<button
 								onClick={() => {
-									setPage(page + 1)
-									loadingTime()
+									if (page >= pagination.last_page) {
+										setPage(1)
+									} else {
+										setPage(page + 1)
+									}
 								}}
 								className='inline-flex items-center py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-r border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
 							>

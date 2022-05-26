@@ -1,15 +1,18 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'wouter'
-import LandingCards from '../components/LandingCards'
+import LandingCards from '../components/LandingBrandCards'
+import LandingModelCard from '../components/LandingModelCards'
 import ScrollDownButton from '../components/ScrollBottomButton'
 import ThemeContext from '../context/ThemeContext'
-import { getMarcas } from '../services/marcaService'
+import { getTopThreeMarcas } from '../services/marcaService'
+import { getTopThreeModelos } from '../services/modeloService'
 
 export default function LandigPage() {
 	const { theme } = useContext(ThemeContext)
 	const [showButton, setShowButton] = useState(false)
 	const messagesEndRef = useRef<any>(null)
 	const [lastBrands, setLastBrands] = useState([])
+	const [lastModels, setLastModels] = useState([])
 
 	useEffect(() => {
 		window.addEventListener('scroll', () => {
@@ -19,7 +22,10 @@ export default function LandigPage() {
 				setShowButton(false)
 			}
 		})
-		getMarcas().then(lastBrands => {
+		getTopThreeModelos().then(lastModels => {
+			setLastModels(lastModels)
+		})
+		getTopThreeMarcas().then(lastBrands => {
 			setLastBrands(lastBrands)
 		})
 	}, [])
@@ -124,15 +130,14 @@ export default function LandigPage() {
 
 						{/* CREATE COMPONENT */}
 						<div className='grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3'>
-							<div className='px-6 py-8 overflow-hidden bg-white rounded-md shadow-md'>
-								<h2 className='text-xl font-medium text-gray-800 text-left sm:text-left md:text-left'>
-									Test
-								</h2>
-								<p className='max-w-md mt-4 text-gray-400 text-justify'>
-									Lorem ipsum dolor sit amet, consectetur adipiscing Ac aliquam
-									ac volutpat, viverra magna risus aliquam massa.
-								</p>
-							</div>
+							{lastModels.map(({ id, model_name, make }: any) => (
+								<LandingModelCard
+									key={id}
+									id={id}
+									modelName={model_name}
+									makeName={make}
+								/>
+							))}
 						</div>
 					</div>
 				</div>

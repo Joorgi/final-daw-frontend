@@ -22,9 +22,8 @@ export default function ModelsPage() {
 
 	useEffect(() => {
 		loadingTime()
-		getModelos().then(model => {
-			console.log(model)
-			setModels(model)
+		getModelos(page).then(model => {
+			setModels(model.data)
 			setPagination(model)
 		})
 	}, [setModels, page])
@@ -54,7 +53,7 @@ export default function ModelsPage() {
 				)}
 
 				{models.length > 1 ? (
-					<div className='flex flex-col items-center bottom-11'>
+					<div className='flex flex-col items-center'>
 						<span className='text-sm text-gray-700 dark:text-white'>
 							Página{' '}
 							<span className='font-semibold text-gray-900 dark:text-gray-900'>
@@ -73,7 +72,11 @@ export default function ModelsPage() {
 						<div className='inline-flex mt-2 xs:mt-0'>
 							<button
 								onClick={() => {
-									setPage(page - 1)
+									if (page <= 1) {
+										setPage(pagination.last_page)
+									} else {
+										setPage(page - 1)
+									}
 								}}
 								className='inline-flex items-center py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
 							>
@@ -89,8 +92,11 @@ export default function ModelsPage() {
 							</button>
 							<button
 								onClick={() => {
-									setPage(page + 1)
-									loadingTime()
+									if (page >= pagination.last_page) {
+										setPage(1)
+									} else {
+										setPage(page + 1)
+									}
 								}}
 								className='inline-flex items-center py-2 px-4 text-sm font-medium text-white bg-gray-800 rounded-r border-0 border-l border-gray-700 hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white'
 							>
