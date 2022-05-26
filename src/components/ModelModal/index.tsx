@@ -8,11 +8,16 @@ export default function ModelModal(props: any) {
 	const [model, setModel] = useState({
 		id: 0,
 		model_name: '',
+		model_power: 0,
+		model_weight: 0,
+		model_par: 0,
+		model_description: '',
 		images: [{ img_route: '' }],
 	})
 	useEffect(() => {
 		getModeloWithImageById(props.id).then(modelo => {
 			setModel(modelo)
+			console.log(modelo)
 		})
 	}, [setModel, contador])
 	return (
@@ -49,105 +54,106 @@ export default function ModelModal(props: any) {
 					</div>
 
 					<div className='p-6 space-y-6'>
-						<div id='default-carousel' className='relative'>
-							<div className='overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96'>
-								<div className='duration-700 ease-in-out'>
-									<span className='absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800'></span>
-
-									<img
-										src={`${
-											API_URL_IMAGES +
-											model.images[contador]?.img_route.slice(
-												6,
-												model.images[contador]?.img_route.length
-											)
-										}`}
-										className='block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2'
-										alt={`imagene modelo ${model.model_name}`}
-									/>
+						{model.images[contador] ? (
+							<div id='default-carousel' className='relative'>
+								<div className='overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96'>
+									<div className='duration-700 ease-in-out'>
+										<span className='absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800'></span>
+										<img
+											src={`${
+												API_URL_IMAGES +
+												model.images[contador]?.img_route.slice(
+													6,
+													model.images[contador]?.img_route.length
+												)
+											}`}
+											className='block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2'
+											alt={`imagene modelo ${model.model_name}`}
+										/>
+									</div>
 								</div>
+
+								<button
+									type='button'
+									onClick={() => {
+										setContador(contador - 1)
+										if (contador <= 0) {
+											setContador(model.images.length - 1)
+										}
+									}}
+									className='flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none'
+								>
+									<span className='inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-[#FF9098] dark:bg-[#FF9098] group-hover:bg-[#FF3846] dark:group-hover:bg-[#FF3846]'>
+										<svg
+											className='w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800'
+											fill='none'
+											stroke='currentColor'
+											viewBox='0 0 24 24'
+											xmlns='http://www.w3.org/2000/svg'
+										>
+											<path
+												strokeLinecap='round'
+												strokeLinejoin='round'
+												strokeWidth='2'
+												d='M15 19l-7-7 7-7'
+											></path>
+										</svg>
+									</span>
+								</button>
+								<button
+									type='button'
+									onClick={() => {
+										if (contador >= model.images.length - 1) {
+											setContador(0)
+										} else {
+											setContador(contador + 1)
+										}
+									}}
+									className='flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none'
+								>
+									<span className='inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-[#FF9098] dark:bg-[#FF9098] group-hover:bg-[#FF3846] dark:group-hover:bg-[#FF3846]'>
+										<svg
+											className='w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800'
+											fill='none'
+											stroke='currentColor'
+											viewBox='0 0 24 24'
+											xmlns='http://www.w3.org/2000/svg'
+										>
+											<path
+												strokeLinecap='round'
+												strokeLinejoin='round'
+												strokeWidth='2'
+												d='M9 5l7 7-7 7'
+											></path>
+										</svg>
+									</span>
+								</button>
 							</div>
-
-							<button
-								type='button'
-								onClick={() => {
-									setContador(contador - 1)
-									if (contador <= 0) {
-										setContador(model.images.length - 1)
-									}
-								}}
-								className='flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none'
-							>
-								<span className='inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-[#FF9098] dark:bg-[#FF9098] group-hover:bg-[#FF3846] dark:group-hover:bg-[#FF3846]'>
-									<svg
-										className='w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800'
-										fill='none'
-										stroke='currentColor'
-										viewBox='0 0 24 24'
-										xmlns='http://www.w3.org/2000/svg'
-									>
-										<path
-											strokeLinecap='round'
-											strokeLinejoin='round'
-											strokeWidth='2'
-											d='M15 19l-7-7 7-7'
-										></path>
-									</svg>
-								</span>
-							</button>
-							<button
-								type='button'
-								onClick={() => {
-									if (contador >= model.images.length - 1) {
-										setContador(0)
-									} else {
-										setContador(contador + 1)
-									}
-								}}
-								className='flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none'
-							>
-								<span className='inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-[#FF9098] dark:bg-[#FF9098] group-hover:bg-[#FF3846] dark:group-hover:bg-[#FF3846]'>
-									<svg
-										className='w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800'
-										fill='none'
-										stroke='currentColor'
-										viewBox='0 0 24 24'
-										xmlns='http://www.w3.org/2000/svg'
-									>
-										<path
-											strokeLinecap='round'
-											strokeLinejoin='round'
-											strokeWidth='2'
-											d='M9 5l7 7-7 7'
-										></path>
-									</svg>
-								</span>
-							</button>
-						</div>
-
+						) : null}
 						<p className='text-base leading-relaxed text-gray-500 dark:text-gray-400'>
-							The European Union’s General Data Protection Regulation (G.D.P.R.)
-							goes into effect on May 25 and is meant to ensure a common set of
-							data rights in the European Union. It requires organizations to
-							notify users as soon as possible of high-risk data breaches that
-							could personally affect them.
-						</p>
-						<p className='text-base leading-relaxed text-gray-500 dark:text-gray-400'>
-							With less than a month to go before the European Union enacts new
-							consumer privacy laws for its citizens, companies around the world
-							are updating their terms of service agreements to comply.
-						</p>
-						<p className='text-base leading-relaxed text-gray-500 dark:text-gray-400'>
-							The European Union’s General Data Protection Regulation (G.D.P.R.)
-							goes into effect on May 25 and is meant to ensure a common set of
-							data rights in the European Union. It requires organizations to
-							notify users as soon as possible of high-risk data breaches that
-							could personally affect them.
+							{model.model_description}
 						</p>
 					</div>
 
 					<div className='grid lg:grid-cols-3 md:grid-cols-2 items-center text-center p-6  rounded-b border-t border-gray-200 dark:border-gray-600'>
-						Caracteristicas...
+						<ul className='w-full px-4 py-2  dark:border-gray-600'>
+							CV
+							<li className='text-gray-700 dark:text-white hover:text-[#9FFF90] dark:hover:text-[#9FFF90]'>
+								{model.model_power}
+							</li>
+						</ul>
+						<ul className='w-full px-4 py-2  dark:border-gray-600'>
+							Peso
+							<li className='text-gray-700 dark:text-white hover:text-[#9FFF90] dark:hover:text-[#9FFF90]'>
+								{model.model_weight} Kg
+							</li>
+						</ul>
+						<ul className='w-full px-4 py-2  dark:border-gray-600'>
+							Par máximo
+							<li className='text-gray-700 dark:text-white hover:text-[#9FFF90] dark:hover:text-[#9FFF90]'>
+								{model.model_par} Nm
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>

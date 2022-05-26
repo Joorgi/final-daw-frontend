@@ -9,6 +9,7 @@ export default function BrandModal(props: any) {
 	const [brand, setBrand] = useState({
 		make_name: '',
 		make_img: '',
+		make_description: '',
 		models: [{ model_name: '' }],
 	})
 
@@ -72,27 +73,7 @@ export default function BrandModal(props: any) {
 						/>
 
 						<p className='text-lg text-justify leading-relaxed text-gray-500 dark:text-gray-400'>
-							La Scuderia Ferrari comenzó a competir junto a pilotos y
-							automóviles de Alfa Romeo y Fiat. La compañía comenzó a producir
-							automóviles en serie en 1947. Se convirtió en Ferrari S.A. cuando
-							en 1969 Fiat Group entró a ser parte del Consejo de Administración
-							y se hizo accionista de la empresa.
-						</p>
-						<p className='text-lg text-justify leading-relaxed text-gray-500 dark:text-gray-400'>
-							En 2013 Ferrari redujo expresamente su producción de automóviles a
-							6922 unidades en su fábrica de Maranello. Esta cifra significó un
-							5,4 % menos que el año anterior, a pesar de sacar un 5,4 % más de
-							beneficios.
-						</p>
-						<p className='text-lg text-justify leading-relaxed text-gray-500 dark:text-gray-400'>
-							En 2014 y tras la constitución de Fiat Chrysler Automóviles a
-							nivel mundial, Ferrari alcanzó rentabilidad suficiente, lo que le
-							permitió finalmente independizarse del paraguas de Fiat y comenzar
-							a operar como una marca independiente. Aun así, la familia
-							Agnelli-Elkann continúa siendo su principal propietaria, colocando
-							a Ferrari directamente bajo la órbita del consorcio Exor. A su
-							vez, conforma junto a su similar Maserati el grupo de marcas
-							prémium dentro del grupo automovilístico italiano.
+							{brand.make_description.split('.').join('.\n')}
 						</p>
 					</div>
 					<div className='grid lg:grid-cols-3 md:grid-cols-2 items-center text-center p-6  rounded-b border-t border-gray-200 dark:border-gray-600'>
