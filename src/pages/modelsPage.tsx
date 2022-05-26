@@ -52,7 +52,7 @@ export default function ModelsPage() {
 					</article>
 				)}
 
-				{models.length > 1 ? (
+				{models.length > 0 ? (
 					<div className='flex flex-col items-center'>
 						<span className='text-sm text-gray-700 dark:text-white'>
 							Página{' '}

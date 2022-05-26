@@ -14,6 +14,12 @@ export interface Imagen {
 	img: string
 }
 
+export interface Email {
+	name: string
+	email: string
+	message: string
+}
+
 export interface BrandProps {
 	id: number
 	brandName: string

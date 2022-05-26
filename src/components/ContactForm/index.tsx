@@ -1,6 +1,36 @@
+import { useState } from 'react'
+import { sendMail } from '../../services/mailService'
+import { Email } from '../../types'
+
 export default function ContactForm() {
+	const [email, setEmail] = useState({
+		name: '',
+		email: '',
+		message: '',
+	})
+
+	const handleChange = (event: any) => {
+		setEmail(prevProps => ({
+			...prevProps,
+			[event.target.name]: event.target.value,
+		}))
+	}
+
+	async function handleSubmit(event: any) {
+		event.preventDefault()
+		const emailForm: Email = {
+			name: email.name,
+			email: email.email,
+			message: email.message,
+		}
+		sendMail(emailForm)
+	}
+
 	return (
-		<form className='hover:scale-110 hover:duration-300 w-full max-w-lg mx-auto p-9 block relative top-20 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'>
+		<form
+			onSubmit={handleSubmit}
+			className='hover:scale-110 hover:duration-300 w-full max-w-lg mx-auto p-9 block relative top-20 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
+		>
 			<div className='grid xl:grid-cols-1 xl:gap-6 justify-items-center items-center'>
 				<img
 					className='object-cover object-center w-full  h-[180px]'
@@ -21,10 +51,10 @@ export default function ContactForm() {
 				<input
 					type='text'
 					name='name'
-					id='floating_first_name'
+					id='name'
 					className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
 					placeholder=' '
-					required
+					onChange={handleChange}
 				/>
 				<label
 					htmlFor='name'
@@ -38,9 +68,10 @@ export default function ContactForm() {
 				<input
 					type='email'
 					name='email'
+					id='email'
 					className='block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
 					placeholder=' '
-					required
+					onChange={handleChange}
 				/>
 				<label
 					htmlFor='email'
@@ -63,8 +94,8 @@ export default function ContactForm() {
 					name='message'
 					className='block py-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer'
 					placeholder=''
-					required
 					rows={4}
+					onChange={handleChange}
 				/>
 			</div>
 

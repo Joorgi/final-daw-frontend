@@ -54,7 +54,7 @@ export default function BrandsPage() {
 					</article>
 				)}
 
-				{brands.length > 1 ? (
+				{brands.length > 0 ? (
 					<div className='flex flex-col items-center bottom-11'>
 						<span className='text-sm text-gray-700 dark:text-white'>
 							Página{' '}
