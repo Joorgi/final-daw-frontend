@@ -3,7 +3,7 @@ import './styles.css'
 export default function ScrollBottomButton() {
 	return (
 		<svg
-			className='fill-[#FF3846] h-10 animate-bounce'
+			className='fill-[#FF3846] dark:fill-[#9092ff] h-10 animate-bounce'
 			xmlns='http://www.w3.org/2000/svg'
 			viewBox='0 0 24 24'
 		>

@@ -14,8 +14,8 @@ const ActiveLink = (props: ActiveLinks) => {
 			<a
 				className={
 					isActive
-						? 'block py-2 pr-4 pl-3 text-white bg-[#9FFF90] rounded md:bg-transparent md:text-[#9FFF90] md:p-0 dark:text-white'
-						: 'block py-2 pr-4 pl-3 text-gray-700 border-b rounded border-gray-100 hover:bg-[#D3FFCC] md:hover:bg-transparent md:border-0 md:hover:text-[#78FF63] md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-green-400 md:dark:hover:bg-transparent dark:border-gray-700'
+						? 'block py-2 pr-4 pl-3 text-white bg-[#9FFF90] rounded md:bg-transparent md:text-[#9FFF90] md:p-0 dark:text-[#9FFF90]'
+						: 'block py-2 pr-4 pl-3 text-gray-700 border-b rounded border-gray-100 hover:bg-[#D3FFCC] md:hover:bg-transparent md:border-0 md:hover:text-[#78FF63] md:p-0 dark:text-gray-400 md:dark:hover:text-[#9FFF90] dark:hover:bg-gray-700 dark:hover:text-green-400 md:dark:hover:bg-transparent dark:border-gray-700'
 				}
 			>
 				{props.children}

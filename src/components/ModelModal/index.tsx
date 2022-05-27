@@ -83,7 +83,7 @@ export default function ModelModal(props: any) {
 									}}
 									className='flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none'
 								>
-									<span className='inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-[#FF9098] dark:bg-[#FF9098] group-hover:bg-[#FF3846] dark:group-hover:bg-[#FF3846]'>
+									<span className='inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-[#FF9098] dark:bg-[#9092ff] group-hover:bg-[#FF3846] dark:group-hover:bg-[#9092ff]'>
 										<svg
 											className='w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800'
 											fill='none'
@@ -111,7 +111,7 @@ export default function ModelModal(props: any) {
 									}}
 									className='flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none'
 								>
-									<span className='inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-[#FF9098] dark:bg-[#FF9098] group-hover:bg-[#FF3846] dark:group-hover:bg-[#FF3846]'>
+									<span className='inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-[#FF9098] dark:bg-[#9092ff] group-hover:bg-[#FF3846] dark:group-hover:bg-[#9092ff]'>
 										<svg
 											className='w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800'
 											fill='none'

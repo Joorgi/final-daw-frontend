@@ -48,7 +48,7 @@ export default function LandigPage() {
 				<div className='py-40 flex justify-center'>
 					<div className='items-center pt-44'>
 						<div className='mx-auto'>
-							<h3 className='cursor-default text-5xl text-center sm:text-center md:text-justify font-bold text-[#FF9098] hover:text-[#FF081A]'>
+							<h3 className='cursor-default text-5xl text-center sm:text-center md:text-justify font-bold text-[#FF9098] hover:text-[#FF081A] dark:text-[#9092ff] dark:hover:text-[#3e41ff]'>
 								Tu museo de coches,
 								<br />{' '}
 								<span className='text-[#D3FFCC]'>a tan solo un clic</span>
@@ -57,7 +57,7 @@ export default function LandigPage() {
 								<Link to='/marcas'>
 									<button
 										type='button'
-										className='block mt-16  text-[#78FF63]  hover:text-[#FF3846] bg-[#FF3846] hover:bg-[#78FF63] active:bg-[#FF3846] active:text-[#78FF63] active:duration-150 hover:duration-300 font-medium rounded-lg text-lg px-16 py-3  dark:bg-blue-600 dark:hover:bg-blue-700  dark:focus:ring-blue-800'
+										className='block mt-16  text-[#78FF63]  hover:text-[#FF3846] bg-[#FF3846] hover:bg-[#78FF63] active active:text-[#78FF63] active:duration-150 hover:duration-300 font-medium rounded-lg text-lg px-16 py-3  dark:bg-[#9092ff] dark:hover:bg-[#3e41ff]'
 									>
 										Acceder
 									</button>
@@ -110,7 +110,7 @@ export default function LandigPage() {
 					{showButton && (
 						<button
 							onClick={scrollToTop}
-							className='back-to-top rounded-full bg-[#FF3846] hover:scale-125 hover:bg-[#FF9098]'
+							className='back-to-top rounded-full bg-[#FF3846] dark:bg-[#9092ff] dark:hover:bg-[#3e41ff] hover:scale-125 hover:bg-[#FF9098]'
 						>
 							<img
 								src='src/assets/images/Landing/svg/arrow-drop-up.svg'
