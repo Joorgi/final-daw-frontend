@@ -100,7 +100,7 @@ export default function LandigPage() {
 									<div className='max-w-md'>
 										<img
 											className='object-cover object-center w-full rounded-md shadow h-[500px]'
-											src='src\assets\images\Landing\pexels-maria-geller-2127017.jpg'
+											src='/src/assets/images/Landing/pexels-maria-geller-2127017.jpg'
 										/>
 									</div>
 								</div>
