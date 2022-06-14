@@ -6,6 +6,8 @@ import ScrollDownButton from '../components/ScrollBottomButton'
 import ThemeContext from '../context/ThemeContext'
 import { getTopThreeMarcas } from '../services/marcaService'
 import { getTopThreeModelos } from '../services/modeloService'
+import landingImg from './../assets/images/pexels-maria-geller-2127017.jpg'
+import arrow from './../assets/images/arrow-drop-up.svg'
 
 export default function LandigPage() {
 	const { theme } = useContext(ThemeContext)
@@ -43,7 +45,7 @@ export default function LandigPage() {
 	return (
 		<>
 			<section
-				className={`${theme} bg-[url('assets/images/Landing/pexels-maria-geller-2127040.jpg')] bg-no-repeat bg-cover h-screen opacity-90`}
+				className={`${theme} bg-[url('assets/images/pexels-maria-geller-2127040.jpg')] bg-no-repeat bg-cover h-screen opacity-90`}
 			>
 				<div className='py-40 flex justify-center'>
 					<div className='items-center pt-44'>
@@ -100,7 +102,7 @@ export default function LandigPage() {
 									<div className='max-w-md'>
 										<img
 											className='object-cover object-center w-full rounded-md shadow h-[500px]'
-											src='/src/assets/images/Landing/pexels-maria-geller-2127017.jpg'
+											src={landingImg}
 										/>
 									</div>
 								</div>
@@ -112,10 +114,7 @@ export default function LandigPage() {
 							onClick={scrollToTop}
 							className='back-to-top rounded-full bg-[#FF3846] dark:bg-[#9092ff] dark:hover:bg-[#3e41ff] hover:scale-125 hover:bg-[#FF9098]'
 						>
-							<img
-								src='src/assets/images/Landing/svg/arrow-drop-up.svg'
-								alt=''
-							/>
+							<img src={arrow} alt='arrow' />
 						</button>
 					)}
 				</div>

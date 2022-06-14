@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { sendMail } from '../../services/mailService'
 import { Email } from '../../types'
+import logo from './../../1.svg'
 
 export default function ContactForm() {
 	const [email, setEmail] = useState({
@@ -34,7 +35,7 @@ export default function ContactForm() {
 			<div className='grid xl:grid-cols-1 xl:gap-6 justify-items-center items-center'>
 				<img
 					className='object-cover object-center w-full  h-[180px]'
-					src='/src/assets/Logos/svg/nBackground/1.svg'
+					src={logo}
 					alt=''
 				/>
 			</div>

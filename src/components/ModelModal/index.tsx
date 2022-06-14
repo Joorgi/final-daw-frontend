@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'wouter'
 import { getModeloWithImageById } from '../../services/modeloService'
-import { API_URL_IMAGES } from '../../services/settings'
 
 export default function ModelModal(props: any) {
 	const [contador, setContador] = useState(0)
@@ -17,7 +16,6 @@ export default function ModelModal(props: any) {
 	useEffect(() => {
 		getModeloWithImageById(props.id).then(modelo => {
 			setModel(modelo)
-			console.log(modelo)
 		})
 	}, [setModel, contador])
 	return (
@@ -61,7 +59,7 @@ export default function ModelModal(props: any) {
 										<span className='absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800'></span>
 										<img
 											src={`${
-												API_URL_IMAGES +
+												'http://museucar.westeurope.cloudapp.azure.com:8000/storage' +
 												model.images[contador]?.img_route.slice(
 													6,
 													model.images[contador]?.img_route.length
